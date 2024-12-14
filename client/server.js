@@ -6,26 +6,36 @@ import { v4 as uuidv4 } from "uuid";
 import dotenv from "dotenv";
 dotenv.config();
 
-const clientURL = process.env.VITE_CLIENT_URL;
-  const PORT = process.env.PORT || 3000; 
+const app = express();
+const server = http.createServer(app);
 
-  const app = express();
-  const server = http.createServer(app);
+const io = new Server(server, {
+  cors: {
+    origin: clientURL, // Allow requests only from the specified client URL
+    methods: ["GET", "POST"],
+  },
+});
 
-  const io = new Server(server, {
-    cors: {
-      origin: clientURL,
-      methods: ["GET", "POST"],
-    },
-  });
+// Middleware to handle CORS for HTTP routes
+app.use(
+  cors({
+    origin: clientURL, // Allow the client URL specified in the environment variable
+    methods: ["GET", "POST", "PUT", "DELETE"], // Include allowed HTTP methods
+    credentials: true, // If credentials like cookies or auth headers are needed
+  })
+);
 
-
-app.use(cors({
-  origin: "*"
-}
-))
-app.options('*', cors())
 app.use(express.json());
+
+// Example route to test CORS
+app.get("/api/test", (req, res) => {
+  res.json({ message: "CORS is working!" });
+});
+
+server.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
 
 const Pieces = {
   Scout: {
