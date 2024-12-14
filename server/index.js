@@ -269,6 +269,11 @@ io.on("connection", (socket) => {
   });
 });
 
+app.get('/', (req, res) => {
+  res.send('Welcome to Adventurers Arena API');
+});
+
+
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
