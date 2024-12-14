@@ -21,7 +21,7 @@ const clientURL = process.env.VITE_CLIENT_URL;
 
 
 app.use(cors({
-  origin: "https://slug-panel.onrender.com"
+  origin: "*"
 }
 ))
 app.options('*', cors())
