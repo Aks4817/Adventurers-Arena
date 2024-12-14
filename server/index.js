@@ -6,8 +6,7 @@ import { v4 as uuidv4 } from "uuid";
 import dotenv from "dotenv";
 dotenv.config();
 
-const clientURL = "https://adventurers-arena.vercel.app";
-// const clientURL = process.env.VITE_CLIENT_URL;
+const clientURL = process.env.VITE_CLIENT_URL;
   const PORT = process.env.PORT || 3000; 
 
   const app = express();
@@ -275,20 +274,6 @@ io.on("connection", (socket) => {
 app.get('/', (req, res) => {
   res.send('Welcome to Adventurers Arena API');
 });
-
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "https://adventurers-arena.vercel.app");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(200);
-  }
-  next();
-});
-
-
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
