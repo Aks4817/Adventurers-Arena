@@ -559,7 +559,8 @@ export default function Board({socket}: BoardProps ) {
         );
       }else{
         return(
-          <div className="opponent-joining">    
+          <div className="opponent-joining"    style={{
+            backgroundImage: `url(${backgroundImage})`}}>
          {!gameStarted && (
         <div className="overlay">
           <p className="overlay-text-waiting medievalsharp-regular">Waiting for Players</p>
