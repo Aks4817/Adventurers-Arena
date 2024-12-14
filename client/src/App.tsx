@@ -7,8 +7,9 @@ import { io } from "socket.io-client";
 
 import { AppProvider } from './Context.tsx'; 
 import Skins from './Skins';
+const serverURL = "https://adventurers-arena-server.vercel.app";
 
-const serverURL = import.meta.env.VITE_SERVER_URL;
+// const serverURL = import.meta.env.VITE_SERVER_URL;
 const socket = io(serverURL);
 
 

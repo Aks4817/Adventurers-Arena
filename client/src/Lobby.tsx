@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Socket } from 'socket.io-client';
 import LobbyBg from "./assets/lobby.jpeg";
-const serverURL = import.meta.env.VITE_SERVER_URL; // For Vite projects
+const serverURL = "https://adventurers-arena-server.vercel.app"; // For Vite projects
+// const serverURL = import.meta.env.VITE_SERVER_URL; // For Vite projects
 
 interface LobbyProps {
   socket: Socket;

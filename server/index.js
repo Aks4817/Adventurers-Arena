@@ -6,7 +6,8 @@ import { v4 as uuidv4 } from "uuid";
 import dotenv from "dotenv";
 dotenv.config();
 
-const clientURL = process.env.VITE_CLIENT_URL;
+const clientURL = "https://adventurers-arena.vercel.app";
+// const clientURL = process.env.VITE_CLIENT_URL;
   const PORT = process.env.PORT || 3000; 
 
   const app = express();
