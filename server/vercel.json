@@ -1,15 +1,16 @@
 {
-  "version":2,
-  "builds": [
+    "version": 2,
+    "builds": [
       {
-          "src": "./index.js",
-          "use": "@vercel/node"
+        "src": "index.js",
+        "use": "@vercel/node"
       }
-  ],
-  "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "/"
-      }
-  ]
-}
+    ],
+    "routes": [
+      { "src": "/create-room", "dest": "/index.js" },
+      { "src": "/join-room", "dest": "/index.js" },
+      { "src": "/socket.io", "dest": "/index.js" },
+      { "src": "/(.*)", "dest": "/" }
+    ]
+  }
+  
