@@ -37,9 +37,7 @@ app.get("/api/test", (req, res) => {
   res.json({ message: "CORS is working!" });
 });
 
-server.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
-});
+
 
 const Pieces = {
   Scout: {
