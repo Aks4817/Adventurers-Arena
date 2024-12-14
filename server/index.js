@@ -7,30 +7,29 @@ import dotenv from "dotenv";
 dotenv.config();
 
 
-const clientURL = process.env.VITE_CLIENT_URL || "http://localhost:5173"; // Default to localhost in case env is missing
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 const server = http.createServer(app);
 
-// Configure CORS for socket.io
 const io = new Server(server, {
   cors: {
-    origin: "*", // Allow requests only from the specified client URL
+    origin: "*", 
     methods: ["GET", "POST"],
   },
 });
 
-// Middleware to handle CORS for HTTP routes
+
 app.use(
   cors({
-    origin:"*", // Allow the client URL specified in the environment variable
-    methods: ["GET", "POST", "PUT", "DELETE"], // Include allowed HTTP methods
+    origin:"*", 
+    methods: ["GET", "POST" ], 
     headers: ["Content-Type"],
-    credentials: true, // If credentials like cookies or auth headers are needed
+    credentials: true, 
   })
 );
 app.options('*', cors())
+
 app.use(express.json());
 const Pieces = {
   Scout: {
