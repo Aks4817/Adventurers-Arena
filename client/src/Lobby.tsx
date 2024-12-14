@@ -125,14 +125,14 @@ function Lobby({ socket }: LobbyProps) {
         How to Play
       </button>
 
-      {/* {!account && 
+      {!account && 
         <button onClick={connectWallet} className="arena-button medievalsharp-regular" disabled={loading}>
           {loading ? 'Connecting...' : 'Connect Wallet'}
         </button>}
       {account && 
         <button className='arena-button medievalsharp-regular' onClick={() => navigate('/skins')}>
           Select Skins
-        </button>} */}
+        </button>}
     </div>
   );
 }
