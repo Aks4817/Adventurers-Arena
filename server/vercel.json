@@ -10,20 +10,11 @@
     {
       "src": "/(.*)",
       "dest": "/",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "https://adventurers-arena.vercel.app"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-Type, Date, X-Api-Version"
-        }
-      ]
+      "headers": {
+        "Access-Control-Allow-Origin": "https://adventurers-arena.vercel.app",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+        "Access-Control-Allow-Headers": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-Type, Date, X-Api-Version"
+      }
     }
   ]
 }
