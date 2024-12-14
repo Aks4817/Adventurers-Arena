@@ -19,7 +19,12 @@ const clientURL = process.env.VITE_CLIENT_URL;
     },
   });
 
-app.use(cors());
+
+app.use(cors({
+  origin: "https://slug-panel.onrender.com"
+}
+))
+app.options('*', cors())
 app.use(express.json());
 
 const Pieces = {
