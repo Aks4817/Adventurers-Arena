@@ -13,10 +13,6 @@ const clientURL = process.env.VITE_CLIENT_URL;
   const server = http.createServer(app);
 
   const io = new Server(server, {
-    cors: {
-      origin: clientURL,
-      methods: ["GET", "POST"],
-    },
     transports: ["websocket", "polling"], // Include both transports
   });
   
