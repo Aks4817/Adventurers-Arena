@@ -16,7 +16,7 @@ const server = http.createServer(app);
 // Configure CORS for socket.io
 const io = new Server(server, {
   cors: {
-    origin: clientURL, // Allow requests only from the specified client URL
+    origin: "*", // Allow requests only from the specified client URL
     methods: ["GET", "POST"],
   },
 });
@@ -24,21 +24,14 @@ const io = new Server(server, {
 // Middleware to handle CORS for HTTP routes
 app.use(
   cors({
-    origin: clientURL, // Allow the client URL specified in the environment variable
+    origin:"*", // Allow the client URL specified in the environment variable
     methods: ["GET", "POST", "PUT", "DELETE"], // Include allowed HTTP methods
+    headers: ["Content-Type"],
     credentials: true, // If credentials like cookies or auth headers are needed
   })
 );
-
+app.options('*', cors())
 app.use(express.json());
-
-// Example route to test CORS
-app.get("/api/test", (req, res) => {
-  res.json({ message: "CORS is working!" });
-});
-
-
-
 const Pieces = {
   Scout: {
     mv: 3,
